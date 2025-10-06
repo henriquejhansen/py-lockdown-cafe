@@ -22,8 +22,9 @@ class Cafe:
             raise OutdatedVaccineError("Vaccine is expired")
 
         # Check if visitor is wearing a mask
-        # Note: The test expects this to fail if wearing_a_mask is False or missing
-        if not visitor.get("wearing_a_mask", False):
+        # Test expects failure if wearing_a_mask is False or missing
+        wearing_mask = visitor.get("wearing_a_mask", False)
+        if not wearing_mask:
             raise NotWearingMaskError("Visitor is not wearing a mask")
 
         # All rules are met
